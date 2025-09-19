@@ -1,101 +1,146 @@
-import Image from "next/image";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Brain, Users, TrendingUp, GraduationCap, BookOpen } from "lucide-react"
+import Link from "next/link"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+      {/* Header */}
+      <header className="container mx-auto px-4 py-8">
+        <div className="text-center space-y-6">
+          <h1 className="text-6xl font-bold text-primary tracking-tight">ABHYUDAYA</h1>
+          <p className="text-xl text-muted-foreground font-medium">Empowering futures, growing together</p>
+          <p className="text-lg text-foreground">Helping students to stay on track</p>
         </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12 space-y-16">
+        {/* Description Section */}
+        <section className="text-center max-w-4xl mx-auto space-y-6">
+          <p className="text-lg leading-relaxed text-foreground">
+            AI powered education dashboard system for dropout prevention and student counselling management. Empowering
+            students, mentors, and guardians with data driven insights for academic success.
+          </p>
+        </section>
+
+        {/* Feature Cards */}
+        <section className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Brain className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl">AI Powered Analytics</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                Advanced machine learning algorithms analyze student data to predict risk factors and provide actionable
+                insights for early intervention.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl">Collaborative Support</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                Connect students, teachers, and guardians in a unified platform for seamless communication and
+                coordinated support efforts.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <TrendingUp className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-xl">Progress Tracking</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                Real-time monitoring of academic performance, attendance patterns, and engagement levels with
+                comprehensive reporting tools.
+              </CardDescription>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Role Selection */}
+        <section className="text-center space-y-8">
+          <h2 className="text-3xl font-bold text-foreground">Choose Your Role</h2>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="hover:shadow-lg transition-all hover:scale-105">
+              <CardHeader>
+                <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <GraduationCap className="w-10 h-10 text-primary" />
+                </div>
+                <CardTitle className="text-2xl">Student Portal</CardTitle>
+                <CardDescription className="text-base">
+                  Access your personalized dashboard with analytics, schedules, and progress tracking
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Link href="/auth/student/login">
+                    <Button className="w-full" size="lg">
+                      Student Login
+                    </Button>
+                  </Link>
+                  <Link href="/auth/student/signup">
+                    <Button variant="outline" className="w-full bg-transparent" size="lg">
+                      Student Signup
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all hover:scale-105">
+              <CardHeader>
+                <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <BookOpen className="w-10 h-10 text-primary" />
+                </div>
+                <CardTitle className="text-2xl">Teacher Portal</CardTitle>
+                <CardDescription className="text-base">
+                  Monitor student progress, manage data, and receive risk alerts for early intervention
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Link href="/auth/teacher/login">
+                    <Button className="w-full" size="lg">
+                      Teacher Login
+                    </Button>
+                  </Link>
+                  <Link href="/auth/teacher/signup">
+                    <Button variant="outline" className="w-full bg-transparent" size="lg">
+                      Teacher Signup
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <section className="text-center py-12 border-t border-border">
+          <h3 className="text-2xl font-semibold text-foreground mb-4">Comprehensive Education Support Systems</h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            By focusing on data fusion and timely alerts rather than complex algorithms, we enable institutes to
+            intervene early and reduce drop-out rates through AI-based drop-out prediction and counseling systems.
+          </p>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }

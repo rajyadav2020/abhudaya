@@ -68,29 +68,29 @@ export default function TeacherDashboard() {
   }
 
   const getRiskFactors = (student: Student): { name: string; value: number; weight: number; status: "good" | "warning" | "critical" }[] => {
-    const assignmentRate = (student.assignmentsDone / student.totalAssignments) * 100
-
+    const assignmentRate = (student.assignmentsDone / student.totalAssignments) * 100;
+  
     return [
       {
         name: "Attendance",
         value: student.attendance,
         weight: 0.4,
-        status: student.attendance >= 75 ? "good" : student.attendance >= 50 ? "warning" : ("critical" as const),
+        status: student.attendance >= 75 ? "good" : student.attendance >= 50 ? "warning" : "critical",
       },
       {
         name: "Assignment Completion",
-        value: assignmentRate,
+        value: Math.round(assignmentRate),
         weight: 0.3,
-        status: assignmentRate >= 75 ? "good" : assignmentRate >= 50 ? "warning" : ("critical" as const),
+        status: assignmentRate >= 75 ? "good" : assignmentRate >= 50 ? "warning" : "critical",
       },
       {
         name: "Test Scores",
         value: student.testScores,
         weight: 0.3,
-        status: student.testScores >= 75 ? "good" : student.testScores >= 50 ? "warning" : ("critical" as const),
+        status: student.testScores >= 75 ? "good" : student.testScores >= 50 ? "warning" : "critical",
       },
-    ]
-  }
+    ];
+  };
 
   const getRiskScore = (student: Student) => {
     const assignmentRate = (student.assignmentsDone / student.totalAssignments) * 100

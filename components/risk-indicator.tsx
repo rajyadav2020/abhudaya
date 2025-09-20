@@ -61,8 +61,7 @@ export function RiskIndicator({ studentId, studentName, riskFactors, overallRisk
   }
 
   const getRecommendations = () => {
-    const recommendations = []
-
+    const recommendations: string[] = []
     riskFactors.forEach((factor) => {
       if (factor.status === "critical") {
         switch (factor.name) {

@@ -67,7 +67,7 @@ export default function TeacherDashboard() {
     return "High"
   }
 
-  const getRiskFactors = (student: Student) => {
+  const getRiskFactors = (student: Student): { name: string; value: number; weight: number; status: "good" | "warning" | "critical" }[] => {
     const assignmentRate = (student.assignmentsDone / student.totalAssignments) * 100
 
     return [
